@@ -7,15 +7,19 @@
   display: inline-block;
   user-select: none;
 }
-.btn:hover {
-  background: rgb(180, 180, 180);
-}
-.btn:active {
-  background: rgb(160, 160, 160);
-}
-.m20 {
-  margin: 20px 0;
-}
-body {
-  padding: 10px;
+
+.btn:hover { background: rgb(180, 180, 180); }
+.btn:active { background: rgb(160, 160, 160); }
+
+.m20 { margin: 20px 0; }
+
+body { padding: 10px; }
+
+.block { display: block; }
+
+.bold { font-weight: bold }
+
+/* TODO Написать стили для полей ввода */
+.input {
+
 }

@@ -1,36 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
-import DealList from './DealList/DealList'
+import DealList from './Components/DealList/DealList'
+import AddDeal from './Components/AddDeal/AddDeal'
 import { useState } from 'react'
 
+
 const App = () => {
+  const createDeal = (title, text) => {
+    return { title, text }
+  }
   /*
-  [data, func]
-  data - это данные. Мы можем их только читать. Изменять не можем!!!!
-  func(Новые данные) -> тогда data изменится
+  const a = [1, 2, 3]
+  const b = [...a, 5]
+  b = [1,2,3,5]
   */
-  const [deals, setDeals] = useState(0)
+  const [deals, setDeals] = useState([])
 
-  const addOne = () => {
-    setDeals(deals + 1)
-  }
-
-  const flush = () => {
-    setDeals(0)
-  }
-
-  const minusOne = () => {
-    setDeals(deals - 1)
+  const addDeal = (title, text) => {
+    const newDeal = createDeal(title, text)
+    setDeals([...deals, newDeal])
   }
 
   return (
     <div>
-      <DealList params={deals} handler={addOne}/>
-      <div className="m20">
-        <div className="btn" onClick={addOne}>Click</div>
-        <div className="btn" onClick={flush}>Flush</div>
-        <div className="btn" onClick={minusOne}>minusOne</div>
-      </div>
+      <DealList deals={deals}/>
+      <AddDeal addDeal={addDeal}/>
     </div>
   )
 }
