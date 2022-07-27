@@ -19,12 +19,17 @@ const App = () => {
     setDeals(0)
   }
 
+  const minusOne = () => {
+    setDeals(deals - 1)
+  }
+
   return (
     <div>
       <DealList params={deals} handler={addOne}/>
       <div className="m20">
         <div className="btn" onClick={addOne}>Click</div>
         <div className="btn" onClick={flush}>Flush</div>
+        <div className="btn" onClick={minusOne}>minusOne</div>
       </div>
     </div>
   )
