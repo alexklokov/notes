@@ -1,25 +1,33 @@
 import logo from './logo.svg';
 import './App.css';
+import DealList from './DealList/DealList'
+import { useState } from 'react'
 
-function App() {
+const App = () => {
+  /*
+  [data, func]
+  data - это данные. Мы можем их только читать. Изменять не можем!!!!
+  func(Новые данные) -> тогда data изменится
+  */
+  const [deals, setDeals] = useState(0)
+
+  const addOne = () => {
+    setDeals(deals + 1)
+  }
+
+  const flush = () => {
+    setDeals(0)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <DealList params={deals} handler={addOne}/>
+      <div className="m20">
+        <div className="btn" onClick={addOne}>Click</div>
+        <div className="btn" onClick={flush}>Flush</div>
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
