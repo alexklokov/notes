@@ -7,7 +7,11 @@ import { useState } from 'react'
 
 const App = () => {
   const createDeal = (title, text) => {
-    return { title, text }
+    return {
+      title,
+      text,
+      status: "Не выполнено"
+    }
   }
   /*
   const a = [1, 2, 3]
@@ -23,8 +27,8 @@ const App = () => {
 
   return (
     <div>
-      <DealList deals={deals}/>
       <AddDeal addDeal={addDeal}/>
+      <DealList deals={deals}/>
     </div>
   )
 }

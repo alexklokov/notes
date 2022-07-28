@@ -14,14 +14,17 @@ const AddDeal = (props) => {
   }
 
   const saveDeal = () => {
+    if(title==="" || text===""){
+      return
+    }
     props.addDeal(title, text)
     setTitle("")
     setText("")
   }
   return (
-    <div>
-      <input type="text" name="title" id="title" className="input block" onChange={changeTitle} value={title}/>
-      <textarea name="text" id="text" className="input block" onChange={changeText} value={text}></textarea>
+    <div className="add-deals-wrapper">
+      <input type="text" name="title" id="title" className="input block" placeholder="Введите заголовок" onChange={changeTitle} value={title}/>
+      <textarea name="text" id="text" className="input block" placeholder="Введите текст" onChange={changeText} value={text}></textarea>
 
 
       <div className="btn" onClick={saveDeal}>Добавить</div>

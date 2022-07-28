@@ -1,1 +1,25 @@
 /* TODO Добавить стили для блока с добавление дел */
+
+
+.add-deals-wrapper {
+  width: 50%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+
+
+.add-deals-wrapper .input,
+.add-deals-wrapper .btn {
+  height: 40px;
+  flex: 2;
+}
+.add-deals-wrapper .btn {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}

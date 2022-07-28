@@ -1,15 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400&display=swap');
+
+:root{
+  --orange: rgb(255, 107, 0);
+}
+
+body {
+  background: rgb(240, 240, 240);
+  font-family: "Rubik", sans-serif;
+  font-size: 14px;
+}
+
 .btn {
-  padding: 10px 20px;
-  background: rgb(200, 200, 200);
+  padding: 10px 50px;
+  background: var(--orange);
   color: white;
   cursor: pointer;
   border-radius: 5px;
   display: inline-block;
   user-select: none;
+  text-align: center;
 }
 
-.btn:hover { background: rgb(180, 180, 180); }
-.btn:active { background: rgb(160, 160, 160); }
+.btn:hover { background: rgb(255, 132, 31); }
+.btn:active { background: rgb(255, 132, 31); }
 
 .m20 { margin: 20px 0; }
 
@@ -21,5 +34,12 @@ body { padding: 10px; }
 
 /* TODO Написать стили для полей ввода */
 .input {
-
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  box-shadow: 0 0 10px #eee;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
 }
