@@ -1,0 +1,7 @@
+
+
+.task-list__title {
+  font-size: 24px;
+  color: var(--orange);
+  font-weight: bold;
+}

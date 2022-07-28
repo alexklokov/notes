@@ -1,0 +1,28 @@
+
+.tasks__item {
+  padding: 12px 20px;
+  background: white;
+  border-radius: 5px;
+  margin: 10px 0;
+  display: flex;
+}
+.tasks__content {
+  flex: 1;
+}
+.tasks__text {
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+/* TODO Сделать стилили для разных статусов */
+
+.tasks__status.not-complete {
+  color: red;
+}
+.tasks__status.in-work {}
+
+/* КОНЕЦ Сделать стилили для разных статусов */
+
+.tasks__title {
+  color: var(--orange);
+}

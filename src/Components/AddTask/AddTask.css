@@ -1,0 +1,21 @@
+.add-tasks-wrapper {
+  width: 50%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.add-tasks-wrapper .input,
+.add-tasks-wrapper .btn {
+  height: 40px;
+  flex: 2;
+}
+
+.add-tasks-wrapper .btn {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}

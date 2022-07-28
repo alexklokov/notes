@@ -1,34 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
-import DealList from './Components/DealList/DealList'
-import AddDeal from './Components/AddDeal/AddDeal'
+import TaskList from './Components/TaskList/TaskList'
+import AddTask from './Components/AddTask/AddTask'
 import { useState } from 'react'
 
 
 const App = () => {
-  const createDeal = (title, text) => {
+
+
+  const createTask = (title, text) => {
+    const time = new Date()
     return {
+      id: time.getTime(),
       title,
       text,
-      status: "Не выполнено"
+      status: 0
     }
   }
-  /*
-  const a = [1, 2, 3]
-  const b = [...a, 5]
-  b = [1,2,3,5]
-  */
-  const [deals, setDeals] = useState([])
 
-  const addDeal = (title, text) => {
-    const newDeal = createDeal(title, text)
-    setDeals([...deals, newDeal])
+  const [tasks, setTasks] = useState([])
+
+  const addTask = (title, text) => {
+    const newTask = createTask(title, text)
+    setTasks([...tasks, newTask])
+  }
+
+  const changeStatus = (id, status) => {
+    setTasks(tasks.map(task => {
+      if(task.id === id) task.status = status
+      return task
+    }))
   }
 
   return (
     <div>
-      <AddDeal addDeal={addDeal}/>
-      <DealList deals={deals}/>
+      <AddTask addTask={addTask}/>
+      <TaskList tasks={tasks} changeStatus={changeStatus}/>
     </div>
   )
 }
