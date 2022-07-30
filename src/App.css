@@ -43,3 +43,9 @@ body { padding: 10px; }
   box-sizing: border-box;
   font-size: 14px;
 }
+
+.header {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}

@@ -2,29 +2,36 @@ import { useState } from 'react'
 import './TaskItem.css'
 
 
-const TaskItem = ({task, onChangeStatus}) => {
-  const status_labels = ["Не выполнено", "В работе", "Выполнено"]
-  const status_classes = ["not-complete", "in-work", "complete"]
+const TaskItem = ({task, onChangeStatus, onChangeSelected, status}) => {
 
-  const btn_labels = ["Начать", "Завершить", "Завершено"]
+
+  const changeSelected = (e) => {
+    onChangeSelected(task.id)
+  }
+
+  const changeStatus = (e) => {
+    if(task.status < status.labels.length - 1) {
+      onChangeStatus(task.id, task.status + 1)
+    }
+    if(task.status === status.labels.length - 1)
+      e.target.remove()
+  }
 
   return (
-    <div className={"tasks__item " + status_classes[task.status]}>
+    <div className={"tasks__item " + status.classes[task.status]}>
+      <div>
+        <input type="checkbox" id={task.id} className="checkbox" onChange={changeSelected} checked={task.is_selected}/>
+        <label htmlFor={task.id} className="checkbox"></label>
+      </div>
       <div className="tasks__content">
         <div className="tasks__title">{task.title}</div>
         <div className="tasks__text">{task.text}</div>
       </div>
       <div className="tasks__control">
         <div className="tasks__status">
-          {status_labels[task.status]}
+          {status.labels[task.status]}
         </div>
-        <div className="tasks__start btn" onClick={(e) => {
-          if(task.status < status_labels.length - 1) {
-            onChangeStatus(task.id, task.status + 1)
-          }
-          if(task.status === 2)
-            e.target.remove()
-        }}>{btn_labels[task.status]}</div>
+        <div className="tasks__start btn" onClick={changeStatus}></div>
 
       </div>
     </div>
