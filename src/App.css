@@ -2,27 +2,32 @@
 
 :root{
   --orange: rgb(255, 107, 0);
+  --green: rgb(52, 201, 36);
+  --gray: #999;
+  --body-bg: rgb(240, 240, 240);
 }
 
 body {
-  background: rgb(240, 240, 240);
+  background: var(--body-bg);
   font-family: "Rubik", sans-serif;
   font-size: 14px;
 }
 
 .btn {
-  padding: 10px 50px;
-  background: var(--orange);
-  color: white;
+  padding: 10px 20px;
+  color: var(--orange);
+  background: white;
+  border: solid 2px var(--orange);
   cursor: pointer;
   border-radius: 5px;
   display: inline-block;
   user-select: none;
   text-align: center;
+  transition-duration: .2s;
 }
 
-.btn:hover { background: rgb(255, 132, 31); }
-.btn:active { background: rgb(255, 132, 31); }
+.btn:active,
+.btn:hover { background: var(--orange); color: white; }
 
 .m20 { margin: 20px 0; }
 

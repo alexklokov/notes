@@ -32,9 +32,9 @@ const App = () => {
     setTasks([...tasks, newTask])
   }
 
-  const changeStatus = (id, status) => {
+  const completeTask = (id) => {
     setTasks(tasks.map(task => {
-      if(task.id === id) task.status = status
+      if(task.id === id) task.status = 1 
       return task
     }))
   }
@@ -67,7 +67,7 @@ const App = () => {
                       task={task}
                       status={statuses}
                       onChangeSelected={changeSelected}
-                      onChangeStatus={changeStatus}
+                      completeTask={completeTask}
             />)
   })
 

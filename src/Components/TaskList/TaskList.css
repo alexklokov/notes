@@ -5,3 +5,10 @@
   color: var(--orange);
   font-weight: bold;
 }
+
+.task-list__btn-wrapper {
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}

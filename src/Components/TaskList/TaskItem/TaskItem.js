@@ -2,20 +2,13 @@ import { useState } from 'react'
 import './TaskItem.css'
 
 
-const TaskItem = ({task, onChangeStatus, onChangeSelected, status}) => {
+const TaskItem = ({task, completeTask, onChangeSelected, status}) => {
 
 
   const changeSelected = (e) => {
     onChangeSelected(task.id)
   }
 
-  const changeStatus = (e) => {
-    if(task.status < status.labels.length - 1) {
-      onChangeStatus(task.id, task.status + 1)
-    }
-    if(task.status === status.labels.length - 1)
-      e.target.remove()
-  }
 
   return (
     <div className={"tasks__item " + status.classes[task.status]}>
@@ -31,7 +24,9 @@ const TaskItem = ({task, onChangeStatus, onChangeSelected, status}) => {
         <div className="tasks__status">
           {status.labels[task.status]}
         </div>
-        <div className="tasks__start btn" onClick={changeStatus}></div>
+        <div className="tasks__start" onClick={() => completeTask(task.id)}>
+
+	</div>
 
       </div>
     </div>
