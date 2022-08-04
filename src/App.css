@@ -51,6 +51,6 @@ body { padding: 10px; }
 
 .header {
   display: flex;
-  gap: 20px;
+  flex-direction: column;
   flex-wrap: wrap;
 }

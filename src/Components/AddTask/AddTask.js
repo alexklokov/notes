@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './AddTask.css'
+import './AddTask.sass'
 
 const AddTask = (props) => {
   const [title, setTitle] = useState("")

@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+  import logo from './logo.svg';
 import './App.css';
 import TaskList from './Components/TaskList/TaskList'
 import TaskItem from './Components/TaskList/TaskItem/TaskItem'
@@ -16,8 +16,16 @@ const App = () => {
 
   const createTask = (title, text) => {
     const time = new Date()
+    const day = `${time.getDate()}`.padStart(2, '0')
+    const month = `${time.getMonth()+1}`.padStart(2, '0')
+    const year = `${time.getFullYear()}`
+    const hour = `${time.getHours()}`
+    const minutes = `${time.getMinutes()}`
+    const seconds = `${time.getSeconds()}`
+    const date = `${day}.${month}.${year} ${hour}:${minutes}:${seconds}`
     return {
       id: time.getTime(),
+      date,
       title,
       text,
       status: statuses.default,
@@ -34,7 +42,7 @@ const App = () => {
 
   const completeTask = (id) => {
     setTasks(tasks.map(task => {
-      if(task.id === id) task.status = 1 
+      if(task.id === id) task.status = 1
       return task
     }))
   }
@@ -71,6 +79,29 @@ const App = () => {
             />)
   })
 
+  const task_date = () => {
+    const time = new Date()
+    const day = `${time.getDate()}`.padStart(2, '0')
+    const month = time.getMonth()
+    const year = `${time.getFullYear()}`
+    const monthes = [
+      "Января",
+      "Февраля",
+      "Марта",
+      "Апреля",
+      "Мая",
+      "Июня",
+      "Июля",
+      "Августа",
+      "Сентября",
+      "Октября",
+      "Ноября",
+      "Декабря"
+    ]
+
+    const date = `${day} ${monthes[month]} ${year}`
+    return date
+  }
 
   return (
     <div>
@@ -83,6 +114,7 @@ const App = () => {
       </div>
 
       <TaskList
+          task_date={task_date}
           tasks={task_items}
           selectAll={selectAll}
           removeSelected={removeSelected}

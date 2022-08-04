@@ -1,3 +1,5 @@
+import './TaskStatistic.sass'
+
 const TaskStatistic = ({tasksStatistic, statuses}) => {
   const not_complete = tasksStatistic.filter((task)=>{
     return task.status === 0
@@ -6,10 +8,10 @@ const TaskStatistic = ({tasksStatistic, statuses}) => {
     return task.status === 1
   })
   return (
-    <div>
-      Количество задач: {tasksStatistic.length} <br/>
-      Количество невыполненных задач: {not_complete.length} <br/>
-      Количество выполненных задач: {complete.length} <br/>
+    <div className="statistic-wrapper">
+      Количество задач: <span class="statistic-wrapper__number"> {tasksStatistic.length} </span> <br/>
+      Количество невыполненных задач: <span class="statistic-wrapper__number"> {not_complete.length} </span><br/>
+      Количество выполненных задач: <span class="statistic-wrapper__number"> {complete.length} </span>
     </div>
   )
 }
